@@ -16,8 +16,9 @@ public class Term implements Comparable<Term> {
         this.termWeight = weight;
         this.queryString = query;
         // we initialize the term to be an object with certain weight and certain String Object
-        termPassedIn = new Term(queryString, termWeight);
+        //termPassedIn = new Term(queryString, termWeight);
     }
+
 
     public static Comparator<Term> byReverseWeightOrder() {
         /////////////////what's this?? why doesn't work without this method
@@ -43,7 +44,9 @@ public class Term implements Comparable<Term> {
     public static Comparator<Term> byPrefixOrder(int r) {
         return new Comparator<Term>() {
             public int compare(Term v, Term w) {
-                int returnInt;
+                int returnInt = 99;
+                int vLength = v.queryString.length();
+                int wLength = w.queryString.length();
                 // this error checking prevents r from giving index out of bounds exception;
                 // so if at least one of the strings is less than r in length
                 // we check up to the last char of shortest string
@@ -51,14 +54,32 @@ public class Term implements Comparable<Term> {
                 if((v.queryString.length() < r) || (w.queryString.length() < r)) {
                     if ((v.queryString.length()) <= (w.queryString.length())) {
                         // compare upto length of v.queryString
-                        if()
+                        if((v.queryString.substring(0, vLength).compareTo(w.queryString.substring(0, vLength)) < 0)) {
+                            returnInt = -1;
+                        }
+                        else if((v.queryString.substring(0, vLength).compareTo(w.queryString.substring(0, vLength)) > 0)) {
+                            returnInt = 1;
+                        }
+                        else {
+                            returnInt = 0;
+                        }
                     }
                     else {
+                        if((w.queryString.substring(0, r).compareTo(w.queryString.substring(0, r)) < 0)) {
+                            returnInt = -1;
+                        }
+                        else if((w.queryString.substring(0, r).compareTo(w.queryString.substring(0, r)) > 0)) {
+                            returnInt = 1;
+                        }
+                        else {
+                            returnInt = 0;
+                        }
                         // compare upto w.queryString.length
                     }
                 }
                 else if ((v.queryString.length() > r) && (w.queryString.length() > r)){
                     // compare String chars upto r
+
                 }
                 else {
                     System.out.printf("This line prints out only if there is major logic error in byPrefixorder() method in Term.java");
@@ -76,7 +97,7 @@ public class Term implements Comparable<Term> {
     // Returns a string representation of this term in the following format:
     // the weight, followed by a tab, followed by the query.
     public String toString() {
-        return termPassedIn.termWeight+"   "+termPassedIn.queryString;
+        return this.termWeight+"   "+this.queryString;
     }
 
     // unit testing (you should have some Unit Testing here to confirm that your methods work); for example...
@@ -88,7 +109,7 @@ public class Term implements Comparable<Term> {
         terms[2] = new Term("Ellie", 11);
         terms[3] = new Term("Allen", 9);
         terms[4] = new Term("Eva", 1);
-        int papa;
+
         Arrays.sort(terms);
         for (Term t : terms) {
             StdOut.println(t);
@@ -105,21 +126,5 @@ public class Term implements Comparable<Term> {
         for (Term t : terms) {
             StdOut.println(t);
         }        
-    }
-
-    long getTermWeight() {
-        return termWeight;
-    }
-
-    void setTermWeight(long termWeight) {
-        this.termWeight = termWeight;
-    }
-
-    public Term getTermPassedIn() {
-        return termPassedIn;
-    }
-
-    public void setTermPassedIn(Term termPassedIn) {
-        this.termPassedIn = termPassedIn;
     }
 }
