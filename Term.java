@@ -13,8 +13,8 @@ public class Term implements Comparable<Term> {
     // Initializes a term with the given query string and weight.
     public Term(String query, long weight) {
         //how to assign the value of the string to something
-        termWeight = weight;
-        queryString = query;
+        this.termWeight = weight;
+        this.queryString = query;
         // we initialize the term to be an object with certain weight and certain String Object
         termPassedIn = new Term(queryString, termWeight);
     }
@@ -43,15 +43,27 @@ public class Term implements Comparable<Term> {
     public static Comparator<Term> byPrefixOrder(int r) {
         return new Comparator<Term>() {
             public int compare(Term v, Term w) {
+                int returnInt;
                 // this error checking prevents r from giving index out of bounds exception;
                 // so if at least one of the strings is less than r in length
                 // we check up to the last char of shortest string
+                // to do so we find the shortest of the two Strings and check up to the last char of it
                 if((v.queryString.length() < r) || (w.queryString.length() < r)) {
-
+                    if ((v.queryString.length()) <= (w.queryString.length())) {
+                        // compare upto length of v.queryString
+                        if()
+                    }
+                    else {
+                        // compare upto w.queryString.length
+                    }
                 }
-
-
-              return 0;
+                else if ((v.queryString.length() > r) && (w.queryString.length() > r)){
+                    // compare String chars upto r
+                }
+                else {
+                    System.out.printf("This line prints out only if there is major logic error in byPrefixorder() method in Term.java");
+                }
+              return returnInt;
             }
         };
     }
@@ -64,7 +76,7 @@ public class Term implements Comparable<Term> {
     // Returns a string representation of this term in the following format:
     // the weight, followed by a tab, followed by the query.
     public String toString() {
-        return null; //FIXME
+        return termPassedIn.termWeight+"   "+termPassedIn.queryString;
     }
 
     // unit testing (you should have some Unit Testing here to confirm that your methods work); for example...
