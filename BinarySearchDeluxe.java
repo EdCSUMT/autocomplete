@@ -30,7 +30,7 @@ public class BinarySearchDeluxe {
         terms[3] = new Term("Allen", 9);
         terms[4] = new Term("Eva", 1);
         Arrays.sort(terms);
-        
+
         Term searchme = new Term("J",0);
         int first = BinarySearchDeluxe.firstIndexOf(terms, searchme, Term.byPrefixOrder(1));
         int last = BinarySearchDeluxe.lastIndexOf(terms, searchme, Term.byPrefixOrder(1));
@@ -52,3 +52,4 @@ public class BinarySearchDeluxe {
         StdOut.println("T: " + first + " to " + last);        
     }
 }
+
