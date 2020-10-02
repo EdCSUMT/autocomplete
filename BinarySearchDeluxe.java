@@ -20,6 +20,7 @@ public class BinarySearchDeluxe {
         return -999; //FIXME
     }
 
+
     // unit testing (you should have some Unit Testing here to confirm that your methods work); for example...
     public static void main(String[] args) {
     
