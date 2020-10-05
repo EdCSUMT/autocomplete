@@ -44,6 +44,11 @@ public class Term implements Comparable<Term> {
     public static Comparator<Term> byPrefixOrder(int r) {
         return new Comparator<Term>() {
             public int compare(Term v, Term w) {
+                System.out.printf("Term V.querystring is: %s \n", v.queryString);
+                System.out.printf("Term V.termweight is: %s \n", v.termWeight);
+                System.out.printf("Term W.querystring is: %s \n", w.queryString);
+                System.out.printf("Term W.termWeight is: %s \n", w.termWeight);
+
                 int returnInt = 99;
                 int vLength = v.queryString.length();
                 int wLength = w.queryString.length();
@@ -81,6 +86,8 @@ public class Term implements Comparable<Term> {
                 //else {
                     //System.out.printf("This line prints out only if there is major logic error in byPrefixorder() method in Term.java");
                 //}
+              System.out.print("I am returning: ");
+                System.out.print(returnInt);
               return returnInt;
             }
         };
@@ -130,6 +137,9 @@ public class Term implements Comparable<Term> {
         }
         
         StdOut.println("");
+        for (Term t : terms) {
+            StdOut.println(t);
+        }
         Arrays.sort(terms, Term.byPrefixOrder(1));
         for (Term t : terms) {
             StdOut.println(t);

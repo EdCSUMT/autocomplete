@@ -10,14 +10,76 @@ public class BinarySearchDeluxe {
     // Returns the index of the first key in a[] that equals the search key, or -1 if no such key.
     public static <Key> int firstIndexOf(Key[] a, Key key, Comparator<Key> comparator) {
 
-        return -999; //FIXME
-           
+        int firstRetInd = -1;
+        int lo = 0;
+        int hi = a.length-1;
+
+
+        while (lo <= hi) {
+            int mid = lo + (hi - lo)/2;
+            int testInt = 7/2;
+            System.out.printf("Printing 5/2 %d \n", testInt);
+            // so if value of a[mid] is bigger than value of key, we need to search to the right of middle
+            // therefore mid value is updated
+            if (comparator.compare(a[mid], key) > 0) {
+                hi = mid - 1;
+            }
+            // so if value of a[mid] is less than value of key, we need to search to the right of middle
+            // accordinly, mid value is updated
+            else if (comparator.compare(a[mid], key) < 0) {
+                lo = mid + 1;
+            }
+            //otherwise, if a[mid] !< key and a[mid] >! key that means a[mid] == key
+            //this means we found the first index of the key
+            //we assign that index to the first return index
+            // decrementing high ensures that we conduct search to the right of the one we just found
+            else {
+                if (firstRetInd > mid) {
+                    firstRetInd = mid;
+                }
+                hi = mid - 1;
+            }
+        }
+        return firstRetInd;
     }
 
     
     // Returns the index of the last key in a[] that equals the search key, or -1 if no such key.
+
     public static <Key> int lastIndexOf(Key[] a, Key key, Comparator<Key> comparator) {
-        return -999; //FIXME
+
+        int lastRetInd = -1;
+        int lo = 0;
+        int hi = a.length-1;
+
+
+        while (lo <= hi) {
+            int mid = lo + (hi - lo)/2;
+            int testInt = 7/2;
+            System.out.printf("Printing 5/2 %d \n", testInt);
+            // so if value of a[mid] is bigger than value of key, we need to search to the right of middle
+            // therefore mid value is updated
+            if (comparator.compare(a[mid], key) > 0) {
+                hi = mid - 1;
+            }
+            // so if value of a[mid] is less than value of key, we need to search to the left of middle
+            // accordinly, mid value is updated
+            else if (comparator.compare(a[mid], key) < 0) {
+                lo = mid + 1;
+            }
+            //otherwise, if a[mid] !< key and a[mid] >! key that means a[mid] == key
+            //this means we found the first index of the key
+            //we assign that index to the first return index
+            // then by incrementing the lo we make that binary search from here on takes place to the left of where we just found key match
+            else {
+                if (lastRetInd < mid) {
+                    lastRetInd = mid;
+                }
+                lo = mid + 1;
+            }
+        }
+        return lastRetInd;
+
     }
 
 
@@ -33,13 +95,13 @@ public class BinarySearchDeluxe {
         Arrays.sort(terms);
 
         Term searchme = new Term("J",0);
-        int first = BinarySearchDeluxe.firstIndexOf(terms, searchme, Term.byPrefixOrder(1));
-        int last = BinarySearchDeluxe.lastIndexOf(terms, searchme, Term.byPrefixOrder(1));
+        int first = BinarySearchDeluxe.firstIndexOf(terms, searchme, Term.byPrefixOrder(2));
+        int last = BinarySearchDeluxe.lastIndexOf(terms, searchme, Term.byPrefixOrder(2));
         StdOut.println("J: " + first + " to " + last);
 
         searchme = new Term("A",0);
-        first = BinarySearchDeluxe.firstIndexOf(terms, searchme, Term.byPrefixOrder(1));
-        last = BinarySearchDeluxe.lastIndexOf(terms, searchme, Term.byPrefixOrder(1));
+        first = BinarySearchDeluxe.firstIndexOf(terms, searchme, Term.byPrefixOrder(2));
+        last = BinarySearchDeluxe.lastIndexOf(terms, searchme, Term.byPrefixOrder(2));
         StdOut.println("A: " + first + " to " + last);
        
         searchme = new Term("E",0);
