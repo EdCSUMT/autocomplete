@@ -123,7 +123,7 @@ public class Term implements Comparable<Term> {
     // Returns a string representation of this term in the following format:
     // the weight, followed by a tab, followed by the query.
     public String toString() {
-        return this.termWeight+"   "+this.queryString;
+        return this.termWeight+"\t"+this.queryString;
     }
 
     // unit testing (you should have some Unit Testing here to confirm that your methods work); for example...

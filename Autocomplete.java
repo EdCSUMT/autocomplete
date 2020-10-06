@@ -4,6 +4,7 @@
 import java.util.Arrays;
 public class Autocomplete {
     Term [] termsArray;
+    Term [] allMatchesArray;
     int firstIndex;
     int lastIndex;
     // Initializes the data structure from the given array of terms.
@@ -23,18 +24,21 @@ public class Autocomplete {
     public Term[] allMatches(String prefix) {
         numberOfMatches(prefix);
         // we copy the array from the indexes that are found to have equivalent prefixes that we found using numberOfMatches()
-        Term [] allMatchesArray = Arrays.copyOfRange(termsArray, firstIndex, lastIndex +1);
-        System.out.printf("The first is: %s \n", firstIndex);
-        System.out.printf("The last is: %s \n", lastIndex);
-        System.out.printf("Length of allMatchesArray: %d \n", allMatchesArray.length);
-        //allMatches array is then sorted and then returned in order
-        Arrays.sort(allMatchesArray, Term.byReverseWeightOrder());
-        for (Term t : allMatchesArray) {
-            StdOut.println(t);
-         }
-        System.out.printf("Length of allMatchesArray: %d \n", allMatchesArray.length);
-        return allMatchesArray;
+        if ((firstIndex >-1) && ((lastIndex) > -1)) {
+            allMatchesArray = Arrays.copyOfRange(termsArray, firstIndex, lastIndex +1);
+            System.out.printf("The first is: %s \n", firstIndex);
+            System.out.printf("The last is: %s \n", lastIndex);
+            System.out.printf("Length of allMatchesArray: %d \n", allMatchesArray.length);
+            //allMatches array is then sorted and then returned in order
+            Arrays.sort(allMatchesArray, Term.byReverseWeightOrder());
+            for (Term t : allMatchesArray) {
+                StdOut.println(t);
+            }
+            System.out.printf("Length of allMatchesArray: %d \n", allMatchesArray.length);
 
+        }
+        else allMatchesArray = new Term[0];
+        return allMatchesArray;
     }
 
     // Returns the number of terms that start with the given prefix.
