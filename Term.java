@@ -16,7 +16,7 @@ public class Term implements Comparable<Term> {
         this.termWeight = weight;
         this.queryString = query;
         // we initialize the term to be an object with certain weight and certain String Object
-        //termPassedIn = new Term(queryString, termWeight);
+
     }
 
 
@@ -81,12 +81,8 @@ public class Term implements Comparable<Term> {
                             returnInt = 0;
                         }
                     }
-
-                    //else {
-                    //System.out.printf("This line prints out only if there is major logic error in byPrefixorder() method in Term.java");
-                    //}
-                    System.out.print("I am returning: \n");
-                    System.out.print(returnInt + " \n");
+                    //System.out.print("I am returning: \n");
+                    //System.out.print(returnInt + " \n");
                 }
                 else {
                     if ((v.queryString.substring(0, r).compareTo(w.queryString.substring(0, r)) < 0)) {

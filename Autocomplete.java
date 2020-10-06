@@ -1,6 +1,7 @@
 ///////////////////////
 // By Eduard Shokur ///
 // 09/25/2020 ////////
+
 import java.util.Arrays;
 public class Autocomplete {
     Term [] termsArray;
@@ -10,12 +11,12 @@ public class Autocomplete {
     // Initializes the data structure from the given array of terms.
     public Autocomplete(Term[] terms) {
         //sorts the array passed in
-        System.out.printf("All terms in autoComplete lenght: %d \n", terms.length);
+        //System.out.printf("All terms in autoComplete lenght: %d \n", terms.length);
         termsArray = new Term[terms.length];
         for (int i = 0; i < terms.length; i++) {
             termsArray[i] = terms[i];
         }
-        System.out.printf("All termsArray in autoComplete lenght: %d \n", termsArray.length);
+        //System.out.printf("All termsArray in autoComplete lenght: %d \n", termsArray.length);
         Arrays.sort(termsArray);
 
     }
@@ -26,15 +27,15 @@ public class Autocomplete {
         // we copy the array from the indexes that are found to have equivalent prefixes that we found using numberOfMatches()
         if ((firstIndex >-1) && ((lastIndex) > -1)) {
             allMatchesArray = Arrays.copyOfRange(termsArray, firstIndex, lastIndex +1);
-            System.out.printf("The first is: %s \n", firstIndex);
-            System.out.printf("The last is: %s \n", lastIndex);
-            System.out.printf("Length of allMatchesArray: %d \n", allMatchesArray.length);
+            //System.out.printf("The first is: %s \n", firstIndex);
+            //System.out.printf("The last is: %s \n", lastIndex);
+            //System.out.printf("Length of allMatchesArray: %d \n", allMatchesArray.length);
             //allMatches array is then sorted and then returned in order
             Arrays.sort(allMatchesArray, Term.byReverseWeightOrder());
-            for (Term t : allMatchesArray) {
-                StdOut.println(t);
-            }
-            System.out.printf("Length of allMatchesArray: %d \n", allMatchesArray.length);
+            //for (Term t : allMatchesArray) {
+            //    StdOut.println(t);
+            //}
+            //System.out.printf("Length of allMatchesArray: %d \n", allMatchesArray.length);
 
         }
         else allMatchesArray = new Term[0];
@@ -43,7 +44,7 @@ public class Autocomplete {
 
     // Returns the number of terms that start with the given prefix.
     public int numberOfMatches(String prefix) {
-        System.out.printf("Number of matches prefix is: %s \n", prefix);
+        //System.out.printf("Number of matches prefix is: %s \n", prefix);
         Term prefixTerm = new Term(prefix, 0);
         firstIndex = BinarySearchDeluxe.firstIndexOf(termsArray, prefixTerm, Term.byPrefixOrder(prefix.length()));
         lastIndex = BinarySearchDeluxe.lastIndexOf(termsArray, prefixTerm, Term.byPrefixOrder(prefix.length()));
@@ -65,14 +66,9 @@ public class Autocomplete {
             in.readChar();                         // scan past the tab
             String query = in.readLine();          // read the next query
             terms[i] = new Term(query, weight);
-            // construct the term
-            //StdOut.println(i);
         }
 
-        //for (Term t : terms) {
 
-          ///  }
-        // read in queries from standard input and print out the top k matching terms
         int k = Integer.parseInt(args[1]);
         Autocomplete autocomplete = new Autocomplete(terms);
 

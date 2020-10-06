@@ -41,7 +41,7 @@ public class BinarySearchDeluxe {
                 hi = mid - 1;
             }
         }
-        System.out.printf("FirstretIndex: %d \n", firstRetInd);
+        //System.out.printf("FirstretIndex: %d \n", firstRetInd);
         return firstRetInd;
     }
 
@@ -78,7 +78,8 @@ public class BinarySearchDeluxe {
 
                 lo = mid + 1;
             }
-        } System.out.printf("FirstretIndex: %d \n", lastRetInd);
+        }
+        //System.out.printf("FirstretIndex: %d \n", lastRetInd);
         return lastRetInd;
 
     }
