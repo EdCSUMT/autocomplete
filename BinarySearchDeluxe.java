@@ -55,7 +55,6 @@ public class BinarySearchDeluxe {
 
         while (lo <= hi) {
             int mid = lo + (hi - lo)/2;
-            int testInt = 7/2;
 
             // so if value of a[mid] is bigger than value of key, we need to search to the right of middle
             // therefore mid value is updated

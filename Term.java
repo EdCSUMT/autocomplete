@@ -21,7 +21,7 @@ public class Term implements Comparable<Term> {
 
 
     public static Comparator<Term> byReverseWeightOrder() {
-        /////////////////what's this?? why doesn't work without this method
+
         return new Comparator<Term>() {
             public int compare(Term v, Term w) {
                int retInt;

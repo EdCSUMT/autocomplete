@@ -2,23 +2,34 @@
 // By Eduard Shokur ///
 // 09/25/2020 ////////
 import java.util.Arrays;
-import java.util.PriorityQueue<E>;
-
 public class Autocomplete {
-
+    Term [] termsArray;
+    int firstIndex;
+    int lastIndex;
     // Initializes the data structure from the given array of terms.
     public Autocomplete(Term[] terms) {
+        //sorts the array passed in
+        termsArray = new Term[terms.length];
+
+        Arrays.sort(termsArray);
 
     }
 
     // Returns all terms that start with the given prefix, in descending order of weight.
     public Term[] allMatches(String prefix) {
-        return null; //FIXME
+        // we copy the array from the indexes that are found to have equivalent prefixes that we found using numberOfMatches()
+        Term [] allMatchesArray = Arrays.copyOfRange(termsArray, firstIndex, lastIndex);
+        //allMatches array is then sorted and then returned in order
+        Arrays.sort(allMatchesArray, Term.byReverseWeightOrder());
+        return allMatchesArray;
     }
 
     // Returns the number of terms that start with the given prefix.
     public int numberOfMatches(String prefix) {
-        return -999; //FIXME
+        Term prefixTerm = new Term(prefix, 0);
+        firstIndex = BinarySearchDeluxe.firstIndexOf(termsArray, prefixTerm, Term.byPrefixOrder(prefix.length()));
+        lastIndex = BinarySearchDeluxe.lastIndexOf(termsArray, prefixTerm, Term.byPrefixOrder(prefix.length()));
+        return firstIndex - lastIndex;
     }
     
 
