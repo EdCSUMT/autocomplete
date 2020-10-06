@@ -77,7 +77,8 @@ I am not aware of any bugs or limitations. I spent a whole day to ensure that.
 I have argued extensively with Adam Viray about different ways to prove worse case runtimes
 for different scenarios of binary search. While I didn't take any ideas from him--conversation was
 too general, arguing it out helped me cement my understanding on ways to approach the problem. 
-I also used https://en.wikipedia.org/wiki/Binary_search_algorithm for reference.
+I also used https://stackoverflow.com/questions/50290996/what-is-the-worst-case-for-binary-search for reference and 
+some article for binary search trees as I dabbled with that.
 I discussed briefly with John if implementing PriorityQue would is an overkill--thank goodness
 I didn't go that route.
 I got some helpful tips from Trent when I was stuck like: making a smaller test file and
