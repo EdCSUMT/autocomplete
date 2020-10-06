@@ -11,6 +11,7 @@ public class BinarySearchDeluxe {
     public static <Key> int firstIndexOf(Key[] a, Key key, Comparator<Key> comparator) {
 
         int firstRetInd = -1;
+
         int lo = 0;
         int hi = a.length-1;
 
@@ -40,6 +41,7 @@ public class BinarySearchDeluxe {
                 hi = mid - 1;
             }
         }
+        System.out.printf("FirstretIndex: %d \n", firstRetInd);
         return firstRetInd;
     }
 
@@ -76,7 +78,7 @@ public class BinarySearchDeluxe {
 
                 lo = mid + 1;
             }
-        }
+        } System.out.printf("FirstretIndex: %d \n", lastRetInd);
         return lastRetInd;
 
     }
@@ -92,7 +94,9 @@ public class BinarySearchDeluxe {
         terms[3] = new Term("Allen", 9);
         terms[4] = new Term("Eva", 1);
         Arrays.sort(terms);
-
+        for (Term t : terms) {
+            StdOut.println(t);
+        }
         Term searchme = new Term("J",0);
         int first = BinarySearchDeluxe.firstIndexOf(terms, searchme, Term.byPrefixOrder(2));
         int last = BinarySearchDeluxe.lastIndexOf(terms, searchme, Term.byPrefixOrder(2));

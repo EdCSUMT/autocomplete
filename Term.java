@@ -44,10 +44,10 @@ public class Term implements Comparable<Term> {
     public static Comparator<Term> byPrefixOrder(int r) {
         return new Comparator<Term>() {
             public int compare(Term v, Term w) {
-                System.out.printf("Term V.querystring is: %s \n", v.queryString);
-                System.out.printf("Term V.termweight is: %s \n", v.termWeight);
-                System.out.printf("Term W.querystring is: %s \n", w.queryString);
-                System.out.printf("Term W.termWeight is: %s \n", w.termWeight);
+                //System.out.printf("Term V.querystring is: %s \n", v.queryString);
+                //System.out.printf("Term V.termweight is: %s \n", v.termWeight);
+                //System.out.printf("Term W.querystring is: %s \n", w.queryString);
+                //System.out.printf("Term W.termWeight is: %s \n", w.termWeight);
                 // return of 99 would indicate a logic error in the if/then statements
                 int returnInt = 99;
                 int vLength = v.queryString.length();
