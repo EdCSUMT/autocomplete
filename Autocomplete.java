@@ -2,6 +2,7 @@
 // By Eduard Shokur ///
 // 09/25/2020 ////////
 import java.util.Arrays;
+import java.util.PriorityQueue<E>;
 
 public class Autocomplete {
 

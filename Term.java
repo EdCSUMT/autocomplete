@@ -48,7 +48,7 @@ public class Term implements Comparable<Term> {
                 System.out.printf("Term V.termweight is: %s \n", v.termWeight);
                 System.out.printf("Term W.querystring is: %s \n", w.queryString);
                 System.out.printf("Term W.termWeight is: %s \n", w.termWeight);
-
+                // return of 99 would indicate a logic error in the if/then statements
                 int returnInt = 99;
                 int vLength = v.queryString.length();
                 int wLength = w.queryString.length();
@@ -69,7 +69,24 @@ public class Term implements Comparable<Term> {
                             returnInt = 0;
                         }
                     }
+                    else if ((v.queryString.length()) > (w.queryString.length())) {
+                        // compare upto length of v.queryString
+                        if((v.queryString.substring(0, wLength).compareTo(w.queryString.substring(0, wLength)) < 0)) {
+                            returnInt = -1;
+                        }
+                        else if ((v.queryString.substring(0, wLength).compareTo(w.queryString.substring(0, wLength)) > 0)) {
+                            returnInt = 1;
+                        }
+                        else {
+                            returnInt = 0;
+                        }
+                    }
 
+                    //else {
+                    //System.out.printf("This line prints out only if there is major logic error in byPrefixorder() method in Term.java");
+                    //}
+                    System.out.print("I am returning: \n");
+                    System.out.print(returnInt + " \n");
                 }
                 else {
                     if ((v.queryString.substring(0, r).compareTo(w.queryString.substring(0, r)) < 0)) {
@@ -83,11 +100,6 @@ public class Term implements Comparable<Term> {
                     }
                     // compare upto w.queryString.length
                 }
-                //else {
-                    //System.out.printf("This line prints out only if there is major logic error in byPrefixorder() method in Term.java");
-                //}
-              System.out.print("I am returning: ");
-                System.out.print(returnInt);
               return returnInt;
             }
         };
@@ -137,10 +149,10 @@ public class Term implements Comparable<Term> {
         }
         
         StdOut.println("");
-        for (Term t : terms) {
-            StdOut.println(t);
-        }
-        Arrays.sort(terms, Term.byPrefixOrder(1));
+        //for (Term t : terms) {
+        //   StdOut.println(t);
+        //}
+        Arrays.sort(terms, Term.byPrefixOrder(3));
         for (Term t : terms) {
             StdOut.println(t);
         }        

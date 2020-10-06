@@ -17,8 +17,8 @@ public class BinarySearchDeluxe {
 
         while (lo <= hi) {
             int mid = lo + (hi - lo)/2;
-            int testInt = 7/2;
-            System.out.printf("Printing 5/2 %d \n", testInt);
+
+
             // so if value of a[mid] is bigger than value of key, we need to search to the right of middle
             // therefore mid value is updated
             if (comparator.compare(a[mid], key) > 0) {
@@ -34,9 +34,9 @@ public class BinarySearchDeluxe {
             //we assign that index to the first return index
             // decrementing high ensures that we conduct search to the right of the one we just found
             else {
-                if (firstRetInd > mid) {
+
                     firstRetInd = mid;
-                }
+
                 hi = mid - 1;
             }
         }
@@ -56,7 +56,7 @@ public class BinarySearchDeluxe {
         while (lo <= hi) {
             int mid = lo + (hi - lo)/2;
             int testInt = 7/2;
-            System.out.printf("Printing 5/2 %d \n", testInt);
+
             // so if value of a[mid] is bigger than value of key, we need to search to the right of middle
             // therefore mid value is updated
             if (comparator.compare(a[mid], key) > 0) {
@@ -72,9 +72,9 @@ public class BinarySearchDeluxe {
             //we assign that index to the first return index
             // then by incrementing the lo we make that binary search from here on takes place to the left of where we just found key match
             else {
-                if (lastRetInd < mid) {
+
                     lastRetInd = mid;
-                }
+
                 lo = mid + 1;
             }
         }
