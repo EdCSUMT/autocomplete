@@ -63,7 +63,7 @@ some constant operations for a total runtime of:
 /******************************************************************************
  *  Known bugs / limitations.
  *****************************************************************************/
-I am not aware of any bugs or limitations. I spent a whole day to ensure that. 
+I am not aware of any bugs or limitations. I spent a good chunck of my day to ensure that. 
 
 /******************************************************************************
  *  Describe whatever help (if any) that you received.
@@ -76,17 +76,18 @@ I am not aware of any bugs or limitations. I spent a whole day to ensure that.
  *****************************************************************************/
 I have argued extensively with Adam Viray about different ways to prove worse case runtimes
 for different scenarios of binary search. While I didn't take any ideas from him--conversation was
-too general, arguing it out helped me cement my understanding on ways to approach the problem. 
-I also used https://stackoverflow.com/questions/50290996/what-is-the-worst-case-for-binary-search for reference and 
-some article for binary search trees as I dabbled with that.
-I discussed briefly with John if implementing PriorityQue would is an overkill--thank goodness
+too general nor did I agree with his way of thinkg on the subject, arguing it out helped me cement 
+my understanding on ways to approach the problem. I also used:
+ https://stackoverflow.com/questions/50290996/what-is-the-worst-case-for-binary-search for reference and 
+some article for binary search trees when I dabbled with that.
+I discussed briefly with John if implementing PriorityQue would be an overkill--thank goodness
 I didn't go that route.
-I got some helpful tips from Trent when I was stuck like: making a smaller test file and
-test on it first to fix big bugs before moving on to test bigger things, also we discussed
-command line arguements and what they do.
-Finally, when I kept getting tab is missing, Kayla suggested I check to make sure I implemented 
-my return string. 
-That is all the help that I can remember.
+When I was stuck in troubleshooting, Trent gave me some nice tips like: making a smaller test file and
+testing on it first to fix big bugs before moving on to test bigger things, also we discussed
+command line arguements a bit in as much as they related to my problems.
+Finally, when I kept getting tab is missing error, Kayla suggested I check to make sure I implemented 
+my return object to string correctly. 
+That is all the help that I can think of at the moment.
 
 /******************************************************************************
  *  Describe any serious problems you encountered.
@@ -104,4 +105,6 @@ figured it out myself, but I kept doubting it so I had to ask for help on these.
  *****************************************************************************/
 I liked the assignment very much, especially, the GUI. I did find it challenging
 but mostly because I overthought and over freaked out. I also like how the requirements
-were clearly and explicidly spelled out.
+were clearly and explicidly spelled out. I also spent too much time looking up/reading/drawing 
+out diagrams on documentation on standard PQ functions/comparator and other java functions to see if I 
+should use them. 
